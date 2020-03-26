@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System.Configuration;
+using System.Web.Mvc;
 using AdventureWorks.Services.HumanResources;
 
 namespace AdventureWorks.Web.Controllers
@@ -10,6 +11,8 @@ namespace AdventureWorks.Web.Controllers
         {
             DepartmentService departmentService = new DepartmentService();
             var departmentGroups = departmentService.GetDepartments();
+
+            ViewBag.ApplicationName = ConfigurationManager.AppSettings["ApplicationName"];
 
             return View(departmentGroups);
         }

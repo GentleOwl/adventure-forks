@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System.Configuration;
+using System.Web.Mvc;
 
 namespace AdventureWorks.Web.Controllers
 {
@@ -6,6 +7,8 @@ namespace AdventureWorks.Web.Controllers
     {
         public ActionResult Index()
         {
+            ViewBag.ApplicationName = ConfigurationManager.AppSettings["ApplicationName"];
+
             return View();
         }
     }
